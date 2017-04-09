@@ -1,0 +1,13 @@
+[package]
+name = "maps"
+version = "0.1.0"
+authors = ["Ian Pickering <ipickering2@gmail.com>"]
+
+[dependencies]
+rand = "0.3.15"
+hlua = "0.3"
+
+enum_derive = "0.1.7"
+macro-attr = "0.2.0"
+
+caca = { git = "https://github.com/Ruin0x11/caca-rs" }
