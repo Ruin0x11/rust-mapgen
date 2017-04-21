@@ -5,10 +5,14 @@ use caca::{self, AnsiColor};
 use board::Board;
 use point::Point;
 
-make_global!(DISPLAY, caca::Display, make_display(300, 300));
+make_global!(DISPLAY, caca::Display, make_display(100, 40));
 
 pub fn set_size(w: i32, h: i32) {
     instance::with_mut(|d| d.canvas().set_size(w, h));
+}
+
+pub fn get_event() -> Option<caca::Event> {
+    instance::with(|d| d.poll_event(caca::EVENT_ANY.bits()))
 }
 
 pub fn print(board: &Board) {

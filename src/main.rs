@@ -17,6 +17,7 @@ use std::fs::File;
 use std::io;
 use std::io::prelude::*;
 
+use caca::Event;
 use hlua::Lua;
 
 fn pause() {
@@ -57,6 +58,17 @@ fn main() {
             Ok(_) => (),
             Err(err) => println!("Script error! {:?}", err),
         };
-        pause();
+        println!("Ok.");
+        loop {
+            let event = canvas::get_event().unwrap();
+            match event {
+                Event::KeyPress(key) => match key {
+                    caca::Key::Escape => return,
+                    caca::Key::Return => break,
+                    _           => (),
+                },
+                _ => (),
+            }
+        }
     }
 }

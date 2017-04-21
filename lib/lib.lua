@@ -1,4 +1,5 @@
 require("lib/wrl")
 require("lib/point")
+require("lib/rect")
 require("lib/iter")
 require("lib/rand")

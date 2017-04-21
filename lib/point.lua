@@ -72,7 +72,7 @@ point_metatable.__unm = function (a)
                           return wrl.point(-a.x, -a.y)
                         end
 
-point_metatable.str = function (p)
+point_metatable.__tostring = function (p)
                         return "(" .. p.x .. "," .. p.y .. ")"
                       end
 

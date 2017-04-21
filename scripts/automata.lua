@@ -21,7 +21,7 @@ function alive_neighbors(pos, alive_terrain)
    local count = 0
    for adj in iter.adjacent_iterator_to(pos) do
       if adj.x < 0 or adj.y < 0 or adj.x >= wrl.width() or adj.y >= wrl.height() then
-         -- count = count + 1
+         count = count + 1
       elseif wrl.get(adj) == alive_terrain then
          count = count + 1
       end
@@ -51,8 +51,10 @@ function automata(w, h, alive_terrain, dead_terrain, alive_chance, dead_limit, i
    wrl.new(w, h, dead_terrain)
    local count
    spray_map(alive_chance, alive_terrain)
+   wrl.print_result()
    for count = 1, iterations, 1 do
       step_automata(alive_terrain, dead_terrain, dead_limit)
+      wrl.print_result()
    end
 end
 
